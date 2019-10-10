@@ -69,7 +69,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">-数据结构与算法</a>
+    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
   </div>
 
   </div>
@@ -92,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：链表篇/" data-id="ck1j1xi4x0002hsw4u5c9bpyi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：链表篇/" data-id="ck1kfbcja0004hsw4yy9u681r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -109,7 +109,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">-数据结构与算法</a>
+    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
   </div>
 
   </div>
@@ -128,11 +128,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>​        数组想必大家都不陌生，大家的第一印象肯定都是数组和链表进行比较，数据适合查询，链表适合插入和删除，可是你知道是为什么吗？为什么数组适合查询，为什数组的下标是从0开始的，今天就分享下我学习的经验。</p>
+<p>​        数组的准确定义是：数组是一种<strong>线性表</strong>数据结构，它用一组<strong>连续的内存空间</strong>，来存储一组具有<strong>相同类型的数据</strong>。</p>
+<p>​        所谓线性表，指的是像一条线的数据结构，数据只有前后的关系，如链表，队列，栈都是属于线性表。跟线性表相反的就是非线性表了，比如说 树，图，堆等。</p>
+<p>​        连续的内存空间和相同的数据类型这个特性就注定了数组的随机访问的高性，每次我们新建一个数组的时候都会在内存中根据数组的长度和元素的数据类型开辟一段连续的内存空间，所以说我们每次新建一个数组的时候必须确定数组的长度。比如说 <strong>int[] a = new int[10]</strong>，因为int的大小在内存中占4个字节，那么我假设数组的内存地址在 1000<del>1039，则第一个元素的内存地址就是1000</del>1003。那么我们可以发现数组元素的内存地址的公式就是 <strong>a[i]_address = base_address + i * data_type_size</strong>,data_type_size 就是每个元素的内存占用大小，从这里可以看出，为什数组的下标是从0开始的，我们所说的索引其实就是距离第一个元素偏移几个单位。因为数组的元素的存储性质，导致在插入和删除数据的时候就会比较麻烦，每插入一个元素，插入的位置后面的元素都得往后挪一位，删除一个元素，删除位置后面的元素都要往前移动一位。</p>
+<p>​        在我们的实际业务开发中，可能会直接用到容器，比如说c#的ArrayList，ArrayList 支持动态的扩容，但是是不是Array完全用不到了呢，其实不然，ArrayList在读取和写入中实际会将元素进行装箱，拆箱操作，性能上来说远不及数组。如果是数据大小已知，用不到ArrayList 附带的各种方法，就可以直接使用数组了。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck1j1xi4r0001hsw4bu4u6ss6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck1kfbciz0001hsw4gvxa15ls" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck1j1xi4n0000hsw4mldvjkrj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck1kfbciu0000hsw47trfyhub" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">-数据结构与算法</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a></li></ul>
     </div>
   </div>
 
