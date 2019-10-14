@@ -5,15 +5,20 @@
   
 
   
-  <title>Exception&#39;s Tingle</title>
+  <title>数据结构与算法：链表篇(下) | Exception&#39;s Tingle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Exception&#39;s Tingle">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="链表的代码的实现是个很头疼的事情，我们必须理解指针的含义，警惕指针的丢失和内存的泄漏，我总结了五个比较核心的链表算法，希望可以帮助到你。 `# 1) 单链表反转`  \# 2) 有序链表的合并 \# 3) 链表中检测是否有环 \# 4) 删除链表的倒数第n个节点 \# 5) 求链表的中间节点 \# Edit by: Exception \# Create Date: 2019-10-11 clas">
+<meta name="keywords" content="数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法：链表篇(下)">
+<meta property="og:url" content="http://yoursite.com/2019/10/14/数据结构与算法：链表篇(下)/index.html">
 <meta property="og:site_name" content="Exception&#39;s Tingle">
+<meta property="og:description" content="链表的代码的实现是个很头疼的事情，我们必须理解指针的含义，警惕指针的丢失和内存的泄漏，我总结了五个比较核心的链表算法，希望可以帮助到你。 `# 1) 单链表反转`  \# 2) 有序链表的合并 \# 3) 链表中检测是否有环 \# 4) 删除链表的倒数第n个节点 \# 5) 求链表的中间节点 \# Edit by: Exception \# Create Date: 2019-10-11 clas">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-14T04:26:28.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Exception&#39;s Tingle">
+<meta name="twitter:title" content="数据结构与算法：链表篇(下)">
+<meta name="twitter:description" content="链表的代码的实现是个很头疼的事情，我们必须理解指针的含义，警惕指针的丢失和内存的泄漏，我总结了五个比较核心的链表算法，希望可以帮助到你。 `# 1) 单链表反转`  \# 2) 有序链表的合并 \# 3) 链表中检测是否有环 \# 4) 删除链表的倒数第n个节点 \# 5) 求链表的中间节点 \# Edit by: Exception \# Create Date: 2019-10-11 clas">
   
     <link rel="alternate" href="/Exception-s_Tingle.github.io/atom.xml" title="Exception&#39;s Tingle" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-数据结构与算法：链表篇(下)" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-数据结构与算法：链表篇(下)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/" class="article-date">
   <time datetime="2019-10-14T04:19:25.000Z" itemprop="datePublished">2019-10-14</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/">数据结构与算法：链表篇(下)</a>
+    <h1 class="article-title" itemprop="name">
+      数据结构与算法：链表篇(下)
     </h1>
   
 
@@ -202,137 +205,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-数据结构与算法：链表篇(上)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇(上)/" class="article-date">
-  <time datetime="2019-10-11T08:59:20.000Z" itemprop="datePublished">2019-10-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇(上)/">数据结构与算法：链表篇(上)</a>
-    </h1>
+    <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇(上)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构与算法：链表篇(上)</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相比数组链表则复杂很多，而且链表的种类也是五花八门，如单链表，双向链表，循环链表，还有终极版的双向循环链表。从底层的存储结构来看，链表跟数组恰恰相反，数组需要开辟一块连续的内存空间，而<strong>链表是通过指针将一组零散的内存块串联起来</strong>。数组对于内存的要求很高，链表则要求没有那么高。</p>
-<p>首先我们来看下单链表，单链表的第一个节点为头节点，每个节点分别存储了节点的数据和下一个节点的指针，最后一个节点为尾节点，且尾节点的指针指向null。<strong>由于链表的内存空间不是连续的，所以在插入或者删除的时候不用像数组那样考虑到连续性，所以插入和删除很高效</strong>，但是随机访问的效率没有数组那么的强。</p>
-<p>循环列表相比于单链表的区别则在于<strong>循环链表的尾结点的指针指向了头结点</strong>。如果需要处理环状数据结构问题时候，可以用到循环链表，比如著名的约瑟夫问题。</p>
-<p>双向链表中每个节点中不仅有下一个节点的指针，还有上一个节点的指针。这种模式在特殊情况下插入和删除更加高效。比如说我们需要删除值等于某个值的节点，我们得从头遍历每个节点，直到满足条件的节点，尽管单纯的删除操作的时间复杂度为O(1),但是遍历的时间复杂度则是O(n),相加之后时间复杂度还是O(n)。并且单链表不支持前驱指针，在这样情况下我们的双向链表就非常高效了。看似多存储了一个前指针，浪费了一倍的空间内存，但是在某些情况下代码执行的更加高效，这就是<strong>空间换时间</strong>的设计思想。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇(上)/" data-id="ck1px134x0000ygw40w9vx6ir" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-数据结构与算法：数组篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Exception-s_Tingle.github.io/2019/10/09/数据结构与算法：数组篇/" class="article-date">
-  <time datetime="2019-10-09T08:55:10.000Z" itemprop="datePublished">2019-10-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/09/数据结构与算法：数组篇/">数据结构与算法：数组篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        数组想必大家都不陌生，大家的第一印象肯定都是数组和链表进行比较，数据适合查询，链表适合插入和删除，可是你知道是为什么吗？为什么数组适合查询，为什数组的下标是从0开始的，今天就分享下我学习的经验。</p>
-<p>​        数组的准确定义是：数组是一种<strong>线性表</strong>数据结构，它用一组<strong>连续的内存空间</strong>，来存储一组具有<strong>相同类型的数据</strong>。</p>
-<p>​        所谓线性表，指的是像一条线的数据结构，数据只有前后的关系，如链表，队列，栈都是属于线性表。跟线性表相反的就是非线性表了，比如说 树，图，堆等。</p>
-<p>​        连续的内存空间和相同的数据类型这个特性就注定了数组的随机访问的高性，每次我们新建一个数组的时候都会在内存中根据数组的长度和元素的数据类型开辟一段连续的内存空间，所以说我们每次新建一个数组的时候必须确定数组的长度。比如说 <strong>int[] a = new int[10]</strong>，因为int的大小在内存中占4个字节，那么我假设数组的内存地址在 1000 - 1039，则第一个元素的内存地址就是1000 - 1003。那么我们可以发现数组元素的内存地址的公式就是 <strong>a[i]_address = base_address + i * data_type_size</strong>,data_type_size 就是每个元素的内存占用大小，从这里可以看出，为什数组的下标是从0开始的，我们所说的索引其实就是距离第一个元素偏移几个单位。因为数组的元素的存储性质，导致在插入和删除数据的时候就会比较麻烦，每插入一个元素，插入的位置后面的元素都得往后挪一位，删除一个元素，删除位置后面的元素都要往前移动一位。</p>
-<p>​        在我们的实际业务开发中，可能会直接用到容器，比如说c#的ArrayList，ArrayList 支持动态的扩容，但是是不是Array完全用不到了呢，其实不然，ArrayList在读取和写入中实际会将元素进行装箱，拆箱操作，性能上来说远不及数组。如果是数据大小已知，用不到ArrayList 附带的各种方法，就可以直接使用数组了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck1px13590004ygw4yk4z51r5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Exception‘s Tingle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Exception-s_Tingle.github.io/2019/10/01/Exception‘s Tingle/" class="article-date">
-  <time datetime="2019-10-01T05:58:15.319Z" itemprop="datePublished">2019-10-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/01/Exception‘s Tingle/">Exception&#39;s Tingle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 欢迎来到我的博客，我将在这里记录我的一些学习心得和感悟，如果觉得对于你有帮助可以star下我的 <a href="https://github.com/hackervv/Exception-s_Tingle.github.io" target="_blank" rel="noopener">Github Repository</a>!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck1px13530001ygw4t8jk4w5u" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
