@@ -5,16 +5,19 @@
   
 
   
-  <title>数据结构与算法：链表篇 | Exception&#39;s Tingle</title>
+  <title>数据结构与算法：链表篇(上) | Exception&#39;s Tingle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构与算法：链表篇">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/数据结构与算法：链表篇/index.html">
+  <meta name="description" content="相比数组链表则复杂很多，而且链表的种类也是五花八门，如单链表，双向链表，循环链表，还有终极版的双向循环链表。从底层的存储结构来看，链表跟数组恰恰相反，数组需要开辟一块连续的内存空间，而链表是通过指针将一组零散的内存块串联起来。数组对于内存的要求很高，链表则要求没有那么高。 首先我们来看下单链表，单链表的第一个节点为头节点，每个节点分别存储了节点的数据和下一个节点的指针，最后一个节点为尾节点，且尾节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法：链表篇(上)">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/数据结构与算法：链表篇/index.html">
 <meta property="og:site_name" content="Exception&#39;s Tingle">
+<meta property="og:description" content="相比数组链表则复杂很多，而且链表的种类也是五花八门，如单链表，双向链表，循环链表，还有终极版的双向循环链表。从底层的存储结构来看，链表跟数组恰恰相反，数组需要开辟一块连续的内存空间，而链表是通过指针将一组零散的内存块串联起来。数组对于内存的要求很高，链表则要求没有那么高。 首先我们来看下单链表，单链表的第一个节点为头节点，每个节点分别存储了节点的数据和下一个节点的指针，最后一个节点为尾节点，且尾节">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-10T06:44:10.058Z">
+<meta property="og:updated_time" content="2019-10-14T04:10:58.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构与算法：链表篇">
+<meta name="twitter:title" content="数据结构与算法：链表篇(上)">
+<meta name="twitter:description" content="相比数组链表则复杂很多，而且链表的种类也是五花八门，如单链表，双向链表，循环链表，还有终极版的双向循环链表。从底层的存储结构来看，链表跟数组恰恰相反，数组需要开辟一块连续的内存空间，而链表是通过指针将一组零散的内存块串联起来。数组对于内存的要求很高，链表则要求没有那么高。 首先我们来看下单链表，单链表的第一个节点为头节点，每个节点分别存储了节点的数据和下一个节点的指针，最后一个节点为尾节点，且尾节">
   
     <link rel="alternate" href="/Exception-s_Tingle.github.io/atom.xml" title="Exception&#39;s Tingle" type="application/atom+xml">
   
@@ -63,8 +66,8 @@
       <div class="outer">
         <section id="main"><article id="post-数据结构与算法：链表篇" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Exception-s_Tingle.github.io/2019/10/09/数据结构与算法：链表篇/" class="article-date">
-  <time datetime="2019-10-09T08:59:20.000Z" itemprop="datePublished">2019-10-09</time>
+    <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇/" class="article-date">
+  <time datetime="2019-10-11T08:59:20.000Z" itemprop="datePublished">2019-10-11</time>
 </a>
     
   <div class="article-category">
@@ -79,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据结构与算法：链表篇
+      数据结构与算法：链表篇(上)
     </h1>
   
 
@@ -87,11 +90,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>相比数组链表则复杂很多，而且链表的种类也是五花八门，如单链表，双向链表，循环链表，还有终极版的双向循环链表。从底层的存储结构来看，链表跟数组恰恰相反，数组需要开辟一块连续的内存空间，而<strong>链表是通过指针将一组零散的内存块串联起来</strong>。数组对于内存的要求很高，链表则要求没有那么高。</p>
+<p>首先我们来看下单链表，单链表的第一个节点为头节点，每个节点分别存储了节点的数据和下一个节点的指针，最后一个节点为尾节点，且尾节点的指针指向null。<strong>由于链表的内存空间不是连续的，所以在插入或者删除的时候不用像数组那样考虑到连续性，所以插入和删除很高效</strong>，但是随机访问的效率没有数组那么的强。</p>
+<p>循环列表相比于单链表的区别则在于<strong>循环链表的尾结点的指针指向了头结点</strong>。如果需要处理环状数据结构问题时候，可以用到循环链表，比如著名的约瑟夫问题。</p>
+<p>双向链表中每个节点中不仅有下一个节点的指针，还有上一个节点的指针。这种模式在特殊情况下插入和删除更加高效。比如说我们需要删除值等于某个值的节点，我们得从头遍历每个节点，直到满足条件的节点，尽管单纯的删除操作的时间复杂度为O(1),但是遍历的时间复杂度则是O(n),相加之后时间复杂度还是O(n)。并且单链表不支持前驱指针，在这样情况下我们的双向链表就非常高效了。看似多存储了一个前指针，浪费了一倍的空间内存，但是在某些情况下代码执行的更加高效，这就是<strong>空间换时间</strong>的设计思想。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：链表篇/" data-id="ck1kfi36d0001g0w4mm3mgukg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇/" data-id="ck1pwhv140002eow4yzxnf5nl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,7 +154,7 @@
       <ul>
         
           <li>
-            <a href="/Exception-s_Tingle.github.io/2019/10/09/数据结构与算法：链表篇/">数据结构与算法：链表篇</a>
+            <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇/">数据结构与算法：链表篇(上)</a>
           </li>
         
           <li>
