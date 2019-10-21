@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据结构与算法：栈篇&#39; | Exception&#39;s Tingle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​        栈这种数据结构非常贴切的例子就是洗碗的时候，我们会把盘子一层一层的叠起来，拿的时候也是拿最上面的，也就是新进后出，后进先出。 ​        栈的这种数据结构我们可以用数组和链表来实现，数组实现的栈叫做顺序栈，链表实现的栈叫做链式栈。以下是数组实现的代码。 1234567891011121314151617181920212223242526272829303132333435">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法：栈篇&#39;">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/数据结构与算法：栈篇/index.html">
+<meta property="og:site_name" content="Exception&#39;s Tingle">
+<meta property="og:description" content="​        栈这种数据结构非常贴切的例子就是洗碗的时候，我们会把盘子一层一层的叠起来，拿的时候也是拿最上面的，也就是新进后出，后进先出。 ​        栈的这种数据结构我们可以用数组和链表来实现，数组实现的栈叫做顺序栈，链表实现的栈叫做链式栈。以下是数组实现的代码。 1234567891011121314151617181920212223242526272829303132333435">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-21T02:49:27.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法：栈篇&#39;">
+<meta name="twitter:description" content="​        栈这种数据结构非常贴切的例子就是洗碗的时候，我们会把盘子一层一层的叠起来，拿的时候也是拿最上面的，也就是新进后出，后进先出。 ​        栈的这种数据结构我们可以用数组和链表来实现，数组实现的栈叫做顺序栈，链表实现的栈叫做链式栈。以下是数组实现的代码。 1234567891011121314151617181920212223242526272829303132333435">
+  
+    <link rel="alternate" href="/Exception-s_Tingle.github.io/atom.xml" title="Exception&#39;s Tingle" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/Exception-s_Tingle.github.io/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/Exception-s_Tingle.github.io/" id="logo">Exception&#39;s Tingle</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/Exception-s_Tingle.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/Exception-s_Tingle.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/Exception-s_Tingle.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数据结构与算法：栈篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Exception-s_Tingle.github.io/2019/10/15/数据结构与算法：栈篇/" class="article-date">
+  <time datetime="2019-10-15T09:08:09.000Z" itemprop="datePublished">2019-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据结构与算法：栈篇&#39;
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        栈这种数据结构非常贴切的例子就是洗碗的时候，我们会把盘子一层一层的叠起来，拿的时候也是拿最上面的，也就是<strong>新进后出，后进先出</strong>。</p>
+<p>​        栈的这种数据结构我们可以用数组和链表来实现，数组实现的栈叫做<strong>顺序栈</strong>，链表实现的栈叫做<strong>链式栈</strong>。以下是数组实现的代码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">    Stack based upon linked list</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Author: Exception</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,data:int,next=None)</span>:</span></span><br><span class="line"></span><br><span class="line">​        self.value = data</span><br><span class="line"></span><br><span class="line">​        self.next = next</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">linkedStack</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        self.top: Node = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, value:int)</span>:</span></span><br><span class="line"></span><br><span class="line">​        new_node = Node(value)</span><br><span class="line"></span><br><span class="line">​        new_node.next = self.top</span><br><span class="line"></span><br><span class="line">​        self.top = new_node</span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">if</span> self.top:</span><br><span class="line"></span><br><span class="line">​            value = self.top.value</span><br><span class="line"></span><br><span class="line">​            self.top = self.top.next</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span> value</span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span> -&gt; str:</span></span><br><span class="line"></span><br><span class="line">​        current = self.top</span><br><span class="line"></span><br><span class="line">​        nums = []</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">while</span> current:</span><br><span class="line"></span><br><span class="line">​            nums.append(current.value)</span><br><span class="line"></span><br><span class="line">​            current = current.next</span><br><span class="line"></span><br><span class="line">​        <span class="keyword">return</span> <span class="string">" "</span>.join(<span class="string">f"<span class="subst">&#123;num&#125;</span>]"</span> <span class="keyword">for</span> num <span class="keyword">in</span> nums)</span><br></pre></td></tr></table></figure>
+
+<p>​        在我们的实际软件开发中，栈作为一种基础数据结构，运用最多的就是<strong>函数调用栈</strong>。我知道，操作系统会对每个线程开辟一块独立的内存‘栈’来存储函数调用时所用的临时变量。每进去一个函数都会将临时变量作为一个栈帧数压入栈内存中，当函数执行完毕后，将这个函数对应的栈帧拿出，这样的处理模式就可以很好理解，我们代码中变量的作用域的概念了。</p>
+<p>​        另外栈在检查括号是否匹配的时候也有很大用途，假如我们有三组符号{},(),[],检测括号是否合法，比如{[()]}属于合法，{(})[]显然不合法，其实操作很简单，我们从左往右循环字符串，当遇到开符号将其放入栈中，遇到闭符号将其与栈顶的符号对比看是否匹配，如果匹配则将栈顶的符号拿出栈然后继续循环，不匹配则的话说明这个符号组合不合法。</p>
+<p>​        我们会经常用到浏览器的前进，后退的功能，但是你知道是怎么实现的吗？其实也是同栈来实现的，通过两个栈来分别存储前进和后退网站的记录，当然还得考虑到，是否可以前进和是否可以后退，实现的代码如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">​    简单的浏览器的前进后退功能</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">​    Author: Exception</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">sys.path.append(<span class="string">'linked_stack.py'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> linked_stack <span class="keyword">import</span> linkedStack</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewLinkedStack</span><span class="params">(linkedStack)</span>:</span></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">return</span> <span class="keyword">not</span> self.top</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Browser</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        self.forward_stack = NewLinkedStack()</span><br><span class="line"></span><br><span class="line">​        self.back_stack = NewLinkedStack()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">can_forward</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">if</span> self.forward_stack.is_empty():</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">can_back</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">if</span> self.back_stack.is_empty():</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">open</span><span class="params">(self, url)</span>:</span></span><br><span class="line"></span><br><span class="line">​        self.forward_stack.push(url)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">back</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">if</span> self.back_stack.is_empty():</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">​        curr = self.forward_stack.pop()</span><br><span class="line"></span><br><span class="line">​        self.back_stack.push(curr)</span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">if</span> self.forward_stack.is_empty():</span><br><span class="line"></span><br><span class="line">​            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">​        curr = self.back_stack.pop()</span><br><span class="line"></span><br><span class="line">​        self.forward_stack.push(curr)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/15/数据结构与算法：栈篇/" data-id="ck1ztnvs60000u4w4ilr6d77c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构与算法：链表篇(下)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Exception-s_Tingle.github.io/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/15/数据结构与算法：栈篇/">数据结构与算法：栈篇&#39;</a>
+          </li>
+        
+          <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/">数据结构与算法：链表篇(下)</a>
+          </li>
+        
+          <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇(上)/">数据结构与算法：链表篇(上)</a>
+          </li>
+        
+          <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/09/数据结构与算法：数组篇/">数据结构与算法：数组篇</a>
+          </li>
+        
+          <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/01/Exception‘s Tingle/">Exception&#39;s Tingle</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Exception<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/Exception-s_Tingle.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/Exception-s_Tingle.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/Exception-s_Tingle.github.io/fancybox/jquery.fancybox.css">
+  <script src="/Exception-s_Tingle.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/Exception-s_Tingle.github.io/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
