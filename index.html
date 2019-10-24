@@ -62,6 +62,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构与算法：排序篇(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Exception-s_Tingle.github.io/2019/10/24/数据结构与算法：排序篇(上)/" class="article-date">
+  <time datetime="2019-10-24T01:53:28.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/24/数据结构与算法：排序篇(上)/">数据结构与算法：排序篇(上)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        排序算法对我们程序员来说肯定不陌生，我们学习的第一个算法可能就是排序，但是排序算法层出不穷，各式各样，比如冒泡排序、选择排序、归并排序、快速排序等等，今天我们主要来聊一聊最简单的三种排序：冒泡排序、选择排序、插入排序。</p>
+<p>​        在聊排序算法之前，我们得先知道如何评判一个排序算法好坏，一般我们会从三个方面去考虑。1. <strong>是否原地排序</strong>，也就是空间复杂度是否为O(1)，没有占用其他的内存空间。2. <strong>是否为稳定排序</strong>，稳定排序的定义为，如果数组中出现相同的元素，当完成排序后他们的顺序不发生改变。3. 该算法的<strong>时间复杂度</strong>，也就是算法运行时间的快慢了。</p>
+<p>​        冒泡排序的原理很简单，就是比较相邻的元素的大小，如果前一个比后一个要大则交换位置，每次冒泡都能使一个元素排到它正确的位置，那n次冒泡就可以把一个含有n个元素的数组完成排序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 冒泡排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span><span class="params">(a:List[int])</span>:</span></span><br><span class="line"></span><br><span class="line">  length = len(a)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> length &lt;= <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 是否需要排序</span></span><br><span class="line"></span><br><span class="line">​    made_swap = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">for</span> j <span class="keyword">in</span> range(length-i<span class="number">-1</span>):</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">if</span> a[j] &gt; a[j+<span class="number">1</span>]:</span><br><span class="line"></span><br><span class="line">​        a[j], a[j+<span class="number">1</span>] = a[j+<span class="number">1</span>], a[j]</span><br><span class="line"></span><br><span class="line">​        made_swap = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span> <span class="keyword">not</span> made_swap:</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>​        从代码中很容易看出来，冒泡排序只涉及到相邻数据的互换，所以是原地排序。并且只有交换才能改变两个元素的前后顺序，当有相邻为相同的元素时候，我们不交换，则冒泡也属于稳定算法。另外，冒泡的时间复杂度为 O(n^2)。</p>
+<p>​        看完了冒泡算法，我们再来看看插入排序，插入排序的原理也很简单，将数组分为已排序区和未排序区，遍历未排序区，然后按照大小插入到已排序区合适的位置即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertion_sort</span><span class="params">(a:List[int])</span>:</span></span><br><span class="line"></span><br><span class="line">  length = len(a)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> length &lt;= <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, length):</span><br><span class="line"></span><br><span class="line">​    value = a[i]</span><br><span class="line"></span><br><span class="line">​    j = i - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 当前数跟已排序区间比较</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">while</span> j &gt;= <span class="number">0</span> <span class="keyword">and</span> a[j] &gt; value:</span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 数据交换</span></span><br><span class="line"></span><br><span class="line">​      a[j+<span class="number">1</span>] = a[j]</span><br><span class="line"></span><br><span class="line">​      j-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">​    a[j+<span class="number">1</span>] = value</span><br></pre></td></tr></table></figure>
+
+<p>​        插入排序也不涉及到利用到其他的内存空间，即也是原地排序。如果在已排序区出现和未排序区出现相同的元素，我们可以把后面出现的元素插入到前面出现的元素前面保证排序的稳定性。插入排序的时间复杂度也为O(n^2)。</p>
+<p>​        最后再来看看选择排序，选择排序类似于插入排序，也区分了已排序区和未排序区，不同的是将未排序区的最小值放在已排序区的末尾。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span><span class="params">(a:List[int])</span>:</span></span><br><span class="line"></span><br><span class="line">  length = len(a)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> length &lt;= <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line"></span><br><span class="line">​    min_index = i</span><br><span class="line"></span><br><span class="line">​    min_value = a[i]</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">for</span> j <span class="keyword">in</span> range(i, length):</span><br><span class="line"></span><br><span class="line">​      <span class="keyword">if</span> min_value &gt; a[j]:</span><br><span class="line"></span><br><span class="line">​        min_index = j</span><br><span class="line"></span><br><span class="line">​        min_value = a[j]</span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line"></span><br><span class="line">​    a[i], a[min_index] = a[min_index], a[i]</span><br></pre></td></tr></table></figure>
+
+<p>​        选择排序不占用其他的内存空间所以是原地排序，但是每次排序都要找剩余未排序的元素的最小值，并和前面元素交换位置，从未选择排序不是稳定排序，同样的，选择排序的时间复杂度也为O(n^2)。</p>
+<p>​        同样是原地排序，同样是稳定排序，相同的时间复杂度，可是你知道为什么插入排序要比冒泡排序更加流行呢。面对不同情况排序对象，有的可能非常无序，有的可能稍微好点，我们的冒泡元素交换的次数是个固定值，插入也是一样元素移动次数也是个固定值。但是从我们代码可以看出，冒泡需要多赋值两个临时变量，而且是在循环里面进行赋值操作，从而同样的排序对象，插入排序是对比冒泡排序更优秀的选择。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/24/数据结构与算法：排序篇(上)/" data-id="ck244rkpa0003hgw4m0plegld" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-数据结构与算法：递归篇" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Exception-s_Tingle.github.io/2019/10/23/数据结构与算法：递归篇/" class="article-date">
@@ -100,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/23/数据结构与算法：递归篇/" data-id="ck244n1gk0005tow4428tludw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/23/数据结构与算法：递归篇/" data-id="ck244rkpe0005hgw4ocnt9kl5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/21/数据结构与算法：队列篇/" data-id="ck244n1gl0006tow4kdhrbk9m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/21/数据结构与算法：队列篇/" data-id="ck244rkpi0008hgw47jxlada9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/19/数据结构与算法：栈篇/" data-id="ck244n1gc0002tow4qnfvbq1w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/19/数据结构与算法：栈篇/" data-id="ck244rkoz0000hgw4xlpco5ou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/14/数据结构与算法：链表篇(下)/" data-id="ck244n1go0008tow4oo4853mc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/14/数据结构与算法：链表篇(下)/" data-id="ck244rkph0007hgw4552x8eu9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇(上)/" data-id="ck244n1g90001tow4jpx237yr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇(上)/" data-id="ck244rkpk000ahgw4akrjhvk5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck244n1gi0004tow4qc4xp97d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck244rkpc0004hgw4kjgxqryr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck244n1g40000tow4ufua17fc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck244rkp50001hgw4ls3x3uv6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,6 +467,10 @@
       <ul>
         
           <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/24/数据结构与算法：排序篇(上)/">数据结构与算法：排序篇(上)</a>
+          </li>
+        
+          <li>
             <a href="/Exception-s_Tingle.github.io/2019/10/23/数据结构与算法：递归篇/">数据结构与算法：递归篇</a>
           </li>
         
@@ -425,10 +484,6 @@
         
           <li>
             <a href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/">数据结构与算法：链表篇(下)</a>
-          </li>
-        
-          <li>
-            <a href="/Exception-s_Tingle.github.io/2019/10/11/数据结构与算法：链表篇(上)/">数据结构与算法：链表篇(上)</a>
           </li>
         
       </ul>
