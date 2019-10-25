@@ -62,6 +62,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数据结构与算法：排序篇(中)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Exception-s_Tingle.github.io/2019/10/25/数据结构与算法：排序篇(中)/" class="article-date">
+  <time datetime="2019-10-25T01:50:40.000Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Exception-s_Tingle.github.io/categories/数据结构与算法/">数据结构与算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Exception-s_Tingle.github.io/2019/10/25/数据结构与算法：排序篇(中)/">数据结构与算法：排序篇(中)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​        前面我们介绍了三种排序算法，冒泡，选择和插入，他们的时间复杂度都为O(n^2),适用于小规模数据的排序。今天我们来介绍两种比较常用的处理大规模数据的排序，归并排序和快速排序。</p>
+<p>​        归并排序的思想是分治思想，将一个数组递归的形式从中间分成两个数组，根据两个数组的索引比较两个数组，根据比较的大小放入一个临时数组中。代码如下，而且我写了详细的注解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  归并排序</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Author: Exception</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 排序算法入口</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(a:List)</span>:</span></span><br><span class="line"></span><br><span class="line">  merge_sort_between(a,<span class="number">0</span>,len(a)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 递归分割函数，将列表递归一分为二</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort_between</span><span class="params">(a:List, low:int, high:int)</span>:</span></span><br><span class="line"></span><br><span class="line">  \<span class="comment"># 递归的终止条件</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> low &lt; high:</span><br><span class="line"></span><br><span class="line">​    mid = (low + high) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">​    merge_sort_between(a, low, mid)</span><br><span class="line"></span><br><span class="line">​    merge_sort_between(a, mid+<span class="number">1</span>, high)</span><br><span class="line"></span><br><span class="line">​    merge(a, low, mid, high)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 合并函数，一一比较分割的两个列表元素并且合并</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(a:List, low:int, mid:int, high:int)</span>:</span></span><br><span class="line"></span><br><span class="line">  i, j = low, mid+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">  tmp = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> i &lt;= mid <span class="keyword">and</span> j &lt;= high:</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span> a[i] &lt;= a[j]:</span><br><span class="line"></span><br><span class="line">​      tmp.append(a[i])</span><br><span class="line"></span><br><span class="line">​      i+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">​    <span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">​      tmp.append(a[j])</span><br><span class="line"></span><br><span class="line">​      j+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">  \<span class="comment"># 这个巧妙的运用i和mid的大小判断两个列表中有剩余，并将多余的数组加到tmp中</span></span><br><span class="line"></span><br><span class="line">  start = i <span class="keyword">if</span> i &lt;= mid <span class="keyword">else</span> j</span><br><span class="line"></span><br><span class="line">  end = mid <span class="keyword">if</span> i &lt;= mid <span class="keyword">else</span> j</span><br><span class="line"></span><br><span class="line">  tmp.extend(a[start:end+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">  a[low:high+<span class="number">1</span>] = tmp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">  test_list = [<span class="number">8</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">  merge_sort(test_list)</span><br><span class="line"></span><br><span class="line">  print(test_list)</span><br></pre></td></tr></table></figure>
+
+<pre><code>快速排序的思想和归并排序很类似，都会递归的将数组分成两个部分，不同的是分割的地方会先随机确定一个元素，然后根据partition（）将这个元素与其他的元素比较大小，遇到比它大的元素停止，遇到比它小的往后比较，最后交换位置，返回分区点的索引，最后根据这个分区点递归的分割数组，实现的代码如下。</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  快速排序</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  Author: Exception</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 快速排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(a:List[int])</span>:</span></span><br><span class="line"></span><br><span class="line">  quick_sort_between(a, <span class="number">0</span>, len(a)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 按照随机的元素将列表一分为二</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort_between</span><span class="params">(a:List[int], low:int, high:int)</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> high &gt; low:</span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 随机取元素索引</span></span><br><span class="line"></span><br><span class="line">​    k = random.randint(low, high)</span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 跟第一个元素对换位置</span></span><br><span class="line"></span><br><span class="line">​    a[low], a[k] = a[k], a[low]</span><br><span class="line"></span><br><span class="line">​    p = partition(a, low, high)</span><br><span class="line"></span><br><span class="line">​    \<span class="comment"># 递归继续分割</span></span><br><span class="line"></span><br><span class="line">​    quick_sort_between(a, low, p<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">​    quick_sort_between(a, p+<span class="number">1</span>, high)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">\<span class="comment"># 根据随机的元素跟跟其他元素比较大小并分区然后返回分区点</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(a:List[int], low:int, high:int)</span>:</span></span><br><span class="line"></span><br><span class="line">  pivot = a[low]</span><br><span class="line"></span><br><span class="line">  j = low</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(low+<span class="number">1</span>, high+<span class="number">1</span>):</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span> pivot &gt;= a[i]:</span><br><span class="line"></span><br><span class="line">​      \<span class="comment"># 如果当前的点比分区点要小，则往以分区结尾加上当前点</span></span><br><span class="line"></span><br><span class="line">​      j+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">​      print(a[i])</span><br><span class="line"></span><br><span class="line">​      a[j], a[i] = a[i], a[j]</span><br><span class="line"></span><br><span class="line">​      </span><br><span class="line"></span><br><span class="line">  \<span class="comment"># 当确定分区点的位置后，将分区点和第一位互换位置</span></span><br><span class="line"></span><br><span class="line">  a[low], a[j] = a[j], a[low]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">  test_list = [<span class="number">5</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">11</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">  quick_sort(test_list)</span><br><span class="line"></span><br><span class="line">  print(test_list)</span><br></pre></td></tr></table></figure>
+
+<pre><code>归并排序借助了临时数组，快速排序没有，所以说归并排序不是原地排序，快速排序是原地排序。归并排序中如果待合并的两个数组存在相同的元素，也可以保证前后顺序不变，所以归并是稳定排序。快速排序经过分区后可能会使得相同的元素的前后顺序发生改变，所以快速排序不是稳定排序。两种排序的时间复杂度均为 O(nlgn)，但是在一些极端情况下快速排序的时间复杂度会降到O(n^2),巧妙的确定好pivot的值会避免这种情况，后面会讲到。</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/25/数据结构与算法：排序篇(中)/" data-id="ck25jra340003pww40t786gnd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-数据结构与算法：排序篇(上)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/Exception-s_Tingle.github.io/2019/10/24/数据结构与算法：排序篇(上)/" class="article-date">
@@ -107,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/24/数据结构与算法：排序篇(上)/" data-id="ck244umbo00011kw4gc9zi3kg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/24/数据结构与算法：排序篇(上)/" data-id="ck25jra2z0001pww41lybbcqj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/23/数据结构与算法：递归篇/" data-id="ck244umbw00051kw4d4fmd17f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/23/数据结构与算法：递归篇/" data-id="ck25jra3d0008pww4fuew11r3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/21/数据结构与算法：队列篇/" data-id="ck244umc300091kw4d5ujvycm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/21/数据结构与算法：队列篇/" data-id="ck25jra3i000dpww47omtgcpv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/19/数据结构与算法：栈篇/" data-id="ck244umbv00041kw4nrvjtsi4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/19/数据结构与算法：栈篇/" data-id="ck25jra2s0000pww45188v6a4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -293,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/14/数据结构与算法：链表篇(下)/" data-id="ck244umby00061kw4lhn8ppmn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/14/数据结构与算法：链表篇(下)/" data-id="ck25jra380005pww4z578wh72" class="article-share-link">Share</a>
       
       
     </footer>
@@ -337,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇(上)/" data-id="ck244umc100081kw40igj6eha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/11/数据结构与算法：链表篇(上)/" data-id="ck25jra3g000bpww4grq7r5qu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck244umbq00021kw4jxrim5zm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/09/数据结构与算法：数组篇/" data-id="ck25jra360004pww48y2l4elg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -419,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck244umbh00001kw430zzks4e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/01/Exception‘s Tingle/" data-id="ck25jra3b0007pww41pp0e9pa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,6 +513,10 @@
       <ul>
         
           <li>
+            <a href="/Exception-s_Tingle.github.io/2019/10/25/数据结构与算法：排序篇(中)/">数据结构与算法：排序篇(中)</a>
+          </li>
+        
+          <li>
             <a href="/Exception-s_Tingle.github.io/2019/10/24/数据结构与算法：排序篇(上)/">数据结构与算法：排序篇(上)</a>
           </li>
         
@@ -480,10 +530,6 @@
         
           <li>
             <a href="/Exception-s_Tingle.github.io/2019/10/19/数据结构与算法：栈篇/">数据结构与算法：栈篇</a>
-          </li>
-        
-          <li>
-            <a href="/Exception-s_Tingle.github.io/2019/10/14/数据结构与算法：链表篇(下)/">数据结构与算法：链表篇(下)</a>
           </li>
         
       </ul>
